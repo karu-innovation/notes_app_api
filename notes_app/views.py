@@ -6,8 +6,11 @@ from rest_framework.response import Response
 from .models import Notes
 
 # Create your views here.
-
 @api_view(['GET'])
+def NoteView(request):
+    notes=Notes.objects.all()
+    return Response(serializer.data)
+@api_view(['POST'])
 def CreateView(request):
     notes = Notes.objects.all()
     serializer = NotesSerializer(notes, many=True)
