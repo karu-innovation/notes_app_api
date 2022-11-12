@@ -11,7 +11,7 @@ def NoteView(request):
     return Response(serializer.data)
 #CreateView
 @api_view(['POST'])
-def CreateView(request):
+def CreateView(request):       
     serializer=NotesSerializer(data=request.data)
     if serializer.is_valid():
         serializer.save()       
@@ -35,4 +35,4 @@ def UpdateView(request,pk):
 def deleteView(request, pk):
     note = Notes.objects.get(id=pk)
     note.delete()
-    return Response('Item successfully deleted!')
+    return Response('Item successfully deleted! by kiash')
