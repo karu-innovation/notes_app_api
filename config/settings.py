@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'notes_app',
     'rest_framework',
     'corsheaders',
+    'core',
 ]
 
 MIDDLEWARE = [
@@ -56,11 +57,13 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'config.urls'
-
+import os
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            os.path.join(BASE_DIR, 'frontend/templates')
+            ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
